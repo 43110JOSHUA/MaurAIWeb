@@ -1,0 +1,21 @@
+.page-border {
+  padding-inline: 1rem;
+}
+
+@media (min-width: 768px) {
+  .page-border {
+    padding-inline: 3rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .page-border {
+    padding-inline: 7rem;
+  }
+}
+
+@media (min-width: 1400px) {
+  .page-border {
+    padding-inline: 11rem;
+  }
+}
