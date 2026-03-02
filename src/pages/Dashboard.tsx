@@ -10,9 +10,9 @@ function Dashboard() {
       <LoginModal show={!loading && !user} />
 
       <Navbar bg="dark" variant="dark" className="px-4">
-        <Navbar.Brand href="#">MyApp</Navbar.Brand>
+        <Navbar.Brand href="/">MyApp</Navbar.Brand>
         <Nav className="ms-auto">
-          <Nav.Link href="#">Profile</Nav.Link>
+          <Nav.Link href="/">Profile</Nav.Link>
           <Nav.Link onClick={signOut} style={{ cursor: 'pointer' }}>Logout</Nav.Link>
         </Nav>
       </Navbar>
