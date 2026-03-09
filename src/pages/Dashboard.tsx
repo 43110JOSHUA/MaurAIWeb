@@ -1,14 +1,14 @@
-import { useAuth } from '../context/AuthContext'
-import LoginModal from '../components/LoginModal'
+import { useAuth } from "../context/AuthContext";
+import LoginModal from "../components/LoginModal";
 
 function Dashboard() {
-  const { user, loading } = useAuth()
+  const { user, loading } = useAuth();
 
   return (
-    <div className="page-border">
+    <>
       <LoginModal show={!loading && !user} />
 
-      <div className="container py-5">
+      <div className="container vh-100 py-5">
         <h2 className="mb-4">Dashboard</h2>
         <div className="row g-4">
           <div className="col-md-4">
@@ -37,8 +37,8 @@ function Dashboard() {
           </div>
         </div>
       </div>
-    </div>
-  )
+    </>
+  );
 }
 
-export default Dashboard
+export default Dashboard;

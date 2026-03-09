@@ -7,7 +7,7 @@
   margin-right: auto;
 }
 
-/* Pill navbar */
+/* Navbar */
 .navbar-header {
   background: transparent;
   transition:
@@ -24,4 +24,10 @@
 .navbar-pill {
   border-radius: 9999px;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Button */
+.hover-button:hover {
+  transform: translateY(-2px);
+  transition: all 0.2s ease-in-out;
 }

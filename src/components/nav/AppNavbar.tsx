@@ -4,23 +4,24 @@ function AppNavbar() {
   const { user, signOut } = useAuth()
 
   return (
-    <nav className="navbar navbar-dark bg-dark px-0">
-      <div className="page-border d-flex align-items-center w-100">
-        <a className="navbar-brand fw-bold fs-4" href="/">Maureen AI</a>
-        <ul className="navbar-nav ms-auto flex-row gap-2">
-          <li className="nav-item">
-            <a className="nav-link" href="/dashboard">Dashboard</a>
+    <header className="navbar-header sticky-top px-3 pt-3 pt-lg-5 pb-1">
+      <nav className="navbar-pill rounded-pill bg-light-tan border border-light-grey d-flex justify-content-between align-items-center px-4 py-2 mx-auto">
+        <a className="fw-bold fs-5 text-decoration-none text-body" href="/">Maureen AI</a>
+
+        <ul className="nav align-items-center gap-1 mb-0">
+          <li className="nav-item hover-button">
+            <a className="nav-link text-body px-2" href="/dashboard">Dashboard</a>
           </li>
           {user && (
-            <li className="nav-item">
-              <button className="nav-link btn btn-link p-0" style={{ cursor: 'pointer' }} onClick={signOut}>
+            <li className="nav-item hover-button">
+              <button className="nav-link btn btn-link text-body p-0 px-2 border-0" onClick={signOut}>
                 Logout
               </button>
             </li>
           )}
         </ul>
-      </div>
-    </nav>
+      </nav>
+    </header>
   )
 }
 

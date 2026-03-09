@@ -2,8 +2,9 @@
 @import "../../node_modules/bootstrap/scss/variables";
 
 $custom-colors: (
-  // Add custom colors here, e.g.:
-  // "brand": #ff6b35,
+  "light-tan": #fffffc,
+  "tan": #f8f7f2,
+  "light-grey": #dfdfdf,
 );
 
 $theme-colors: map-merge($theme-colors, $custom-colors);
