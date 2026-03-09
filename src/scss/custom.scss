@@ -1,0 +1,12 @@
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+
+$custom-colors: (
+  // Add custom colors here, e.g.:
+  // "brand": #ff6b35,
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+// Include all of Bootstrap
+@import "../../node_modules/bootstrap/scss/bootstrap";

@@ -1,23 +1,26 @@
-import { Navbar, Nav } from 'react-bootstrap'
 import { useAuth } from '../../context/AuthContext'
 
 function AppNavbar() {
   const { user, signOut } = useAuth()
 
   return (
-    <Navbar bg="dark" variant="dark" className="px-0">
+    <nav className="navbar navbar-dark bg-dark px-0">
       <div className="page-border d-flex align-items-center w-100">
-        <Navbar.Brand className="fw-bold fs-4" href="/">Maureen AI</Navbar.Brand>
-        <Nav className="ms-auto">
-          <Nav.Link href="/dashboard">Dashboard</Nav.Link>
+        <a className="navbar-brand fw-bold fs-4" href="/">Maureen AI</a>
+        <ul className="navbar-nav ms-auto flex-row gap-2">
+          <li className="nav-item">
+            <a className="nav-link" href="/dashboard">Dashboard</a>
+          </li>
           {user && (
-            <>
-              <Nav.Link onClick={signOut} style={{ cursor: 'pointer' }}>Logout</Nav.Link>
-            </>
+            <li className="nav-item">
+              <button className="nav-link btn btn-link p-0" style={{ cursor: 'pointer' }} onClick={signOut}>
+                Logout
+              </button>
+            </li>
           )}
-        </Nav>
+        </ul>
       </div>
-    </Navbar>
+    </nav>
   )
 }
 

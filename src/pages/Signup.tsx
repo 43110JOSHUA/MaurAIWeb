@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Container, Form, Button, Alert, Spinner, Card } from 'react-bootstrap'
 import { supabase } from '../lib/supabase'
 
 function Signup() {
@@ -31,7 +30,6 @@ function Signup() {
       return
     }
 
-    // If email confirmation is required, identities will be empty
     if (data.user && data.user.identities?.length === 0) {
       setMessage('An account with this email already exists.')
     } else if (data.session) {
@@ -42,56 +40,62 @@ function Signup() {
   }
 
   return (
-    <Container className="d-flex align-items-center justify-content-center vh-100">
-      <Card style={{ width: '100%', maxWidth: 420 }}>
-        <Card.Body className="p-4">
+    <div className="page-border d-flex align-items-center justify-content-center vh-100">
+      <div className="card" style={{ width: '100%', maxWidth: 420 }}>
+        <div className="card-body p-4">
           <h4 className="mb-4 text-center">Create Account</h4>
-          {error && <Alert variant="danger">{error}</Alert>}
-          {message && <Alert variant="info">{message}</Alert>}
-          <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3">
-              <Form.Label>Email</Form.Label>
-              <Form.Control
+          {error && <div className="alert alert-danger">{error}</div>}
+          {message && <div className="alert alert-info">{message}</div>}
+          <form onSubmit={handleSubmit}>
+            <div className="mb-3">
+              <label className="form-label">Email</label>
+              <input
+                className="form-control"
                 type="email"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
                 required
                 autoFocus
               />
-            </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
+            </div>
+            <div className="mb-3">
+              <label className="form-label">Password</label>
+              <input
+                className="form-control"
                 type="password"
                 value={password}
                 onChange={e => setPassword(e.target.value)}
                 required
               />
-            </Form.Group>
-            <Form.Group className="mb-4">
-              <Form.Label>Confirm Password</Form.Label>
-              <Form.Control
+            </div>
+            <div className="mb-4">
+              <label className="form-label">Confirm Password</label>
+              <input
+                className="form-control"
                 type="password"
                 value={confirm}
                 onChange={e => setConfirm(e.target.value)}
                 required
               />
-            </Form.Group>
-            <Button type="submit" variant="primary" className="w-100" disabled={loading}>
-              {loading ? <Spinner size="sm" /> : 'Create Account'}
-            </Button>
-          </Form>
+            </div>
+            <button type="submit" className="btn btn-primary w-100" disabled={loading}>
+              {loading
+                ? <span className="spinner-border spinner-border-sm" />
+                : 'Create Account'
+              }
+            </button>
+          </form>
           <div className="text-center mt-3">
             <span className="text-muted">
               Already have an account?{' '}
-              <Button variant="link" className="p-0" onClick={() => navigate('/dashboard')}>
+              <button className="btn btn-link p-0" onClick={() => navigate('/dashboard')}>
                 Sign in
-              </Button>
+              </button>
             </span>
           </div>
-        </Card.Body>
-      </Card>
-    </Container>
+        </div>
+      </div>
+    </div>
   )
 }
 

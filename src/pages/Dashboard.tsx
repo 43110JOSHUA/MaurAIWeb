@@ -1,4 +1,3 @@
-import { Container, Row, Col, Card } from 'react-bootstrap'
 import { useAuth } from '../context/AuthContext'
 import LoginModal from '../components/LoginModal'
 
@@ -6,39 +5,39 @@ function Dashboard() {
   const { user, loading } = useAuth()
 
   return (
-    <>
+    <div className="page-border">
       <LoginModal show={!loading && !user} />
 
-      <Container className="py-5">
+      <div className="container py-5">
         <h2 className="mb-4">Dashboard</h2>
-        <Row className="g-4">
-          <Col md={4}>
-            <Card>
-              <Card.Body>
-                <Card.Title>Stat One</Card.Title>
-                <Card.Text className="display-6">0</Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col md={4}>
-            <Card>
-              <Card.Body>
-                <Card.Title>Stat Two</Card.Title>
-                <Card.Text className="display-6">0</Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col md={4}>
-            <Card>
-              <Card.Body>
-                <Card.Title>Stat Three</Card.Title>
-                <Card.Text className="display-6">0</Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
-      </Container>
-    </>
+        <div className="row g-4">
+          <div className="col-md-4">
+            <div className="card">
+              <div className="card-body">
+                <h5 className="card-title">Stat One</h5>
+                <p className="card-text display-6">0</p>
+              </div>
+            </div>
+          </div>
+          <div className="col-md-4">
+            <div className="card">
+              <div className="card-body">
+                <h5 className="card-title">Stat Two</h5>
+                <p className="card-text display-6">0</p>
+              </div>
+            </div>
+          </div>
+          <div className="col-md-4">
+            <div className="card">
+              <div className="card-body">
+                <h5 className="card-title">Stat Three</h5>
+                <p className="card-text display-6">0</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }
 

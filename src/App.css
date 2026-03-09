@@ -1,0 +1,27 @@
+/* Page horizontal padding */
+.page-border {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Pill navbar */
+.navbar-header {
+  background: transparent;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.navbar-header.navbar-hidden {
+  opacity: 0;
+  transform: translateY(-100%);
+  pointer-events: none;
+}
+
+.navbar-pill {
+  border-radius: 9999px;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+}

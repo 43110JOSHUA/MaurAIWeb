@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { Modal, Form, Button, Alert, Spinner } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import { supabase } from '../lib/supabase'
 
@@ -27,47 +26,61 @@ function LoginModal({ show }: LoginModalProps) {
     setLoading(false)
   }
 
+  if (!show) return null
+
   return (
-    <Modal show={show} backdrop="static" keyboard={false} centered>
-      <Modal.Header>
-        <Modal.Title>Sign In</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        {error && <Alert variant="danger">{error}</Alert>}
-        <Form onSubmit={handleSubmit}>
-          <Form.Group className="mb-3">
-            <Form.Label>Email</Form.Label>
-            <Form.Control
-              type="email"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-              required
-              autoFocus
-            />
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="password"
-              value={password}
-              onChange={e => setPassword(e.target.value)}
-              required
-            />
-          </Form.Group>
-          <Button type="submit" variant="primary" className="w-100" disabled={loading}>
-            {loading ? <Spinner size="sm" /> : 'Sign In'}
-          </Button>
-        </Form>
-      </Modal.Body>
-      <Modal.Footer className="justify-content-center border-0">
-        <span className="text-muted">
-          Don't have an account?{' '}
-          <Button variant="link" className="p-0" onClick={() => navigate('/signup')}>
-            Sign up
-          </Button>
-        </span>
-      </Modal.Footer>
-    </Modal>
+    <>
+      <div className="modal fade show d-block" tabIndex={-1}>
+        <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title">Sign In</h5>
+            </div>
+            <div className="modal-body">
+              {error && <div className="alert alert-danger">{error}</div>}
+              <form onSubmit={handleSubmit}>
+                <div className="mb-3">
+                  <label className="form-label">Email</label>
+                  <input
+                    className="form-control"
+                    type="email"
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
+                    required
+                    autoFocus
+                  />
+                </div>
+                <div className="mb-3">
+                  <label className="form-label">Password</label>
+                  <input
+                    className="form-control"
+                    type="password"
+                    value={password}
+                    onChange={e => setPassword(e.target.value)}
+                    required
+                  />
+                </div>
+                <button type="submit" className="btn btn-primary w-100" disabled={loading}>
+                  {loading
+                    ? <span className="spinner-border spinner-border-sm" />
+                    : 'Sign In'
+                  }
+                </button>
+              </form>
+            </div>
+            <div className="modal-footer justify-content-center border-0">
+              <span className="text-muted">
+                Don't have an account?{' '}
+                <button className="btn btn-link p-0" onClick={() => navigate('/signup')}>
+                  Sign up
+                </button>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="modal-backdrop fade show" />
+    </>
   )
 }
 

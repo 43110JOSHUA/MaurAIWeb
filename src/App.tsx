@@ -1,3 +1,4 @@
+import './scss/custom.scss'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { AuthProvider } from './context/AuthContext'
 import AppNavbar from './components/nav/AppNavbar.tsx'
