@@ -15,11 +15,9 @@ MaurWeb is the React frontend for **Maureen** — a conversational AI therapist.
 
 **Key Features**
 
-- Fullscreen chat dashboard with message history
+- Fullscreen chat dashboard
 - Login/signup flow with Supabase Auth
 - JWT-authenticated requests to the Spring Boot backend
-- Responsive navbar with scroll-hide behavior
-- Custom Bootstrap theme (warm tans, soft borders)
 
 **Architecture**
 
@@ -37,13 +35,13 @@ The frontend handles UI and Supabase auth directly. All other API calls (chat, e
 
 ## Dependencies
 
-| Tool | Purpose |
-|------|---------|
-| React 19 + TypeScript | UI framework |
-| Vite | Build tool / dev server |
-| Bootstrap 5 | Styling (via custom SCSS) |
-| react-router-dom | Client-side routing |
-| @supabase/supabase-js | Auth only |
+| Tool                  | Purpose                   |
+| --------------------- | ------------------------- |
+| React 19 + TypeScript | UI framework              |
+| Vite                  | Build tool / dev server   |
+| Bootstrap 5           | Styling (via custom SCSS) |
+| react-router-dom      | Client-side routing       |
+| @supabase/supabase-js | Auth only                 |
 
 ## Getting Started
 
@@ -76,22 +74,22 @@ App runs at `http://localhost:5173`.
 
 ```
 src/
-  App.tsx               # Root — imports SCSS, defines routes
-  App.css               # Layout, navbar, and hover-button styles
-  main.tsx              # Entry point
+  App.tsx
+  App.css
+  main.tsx
   scss/
     custom.scss         # Bootstrap import + custom theme colors
   pages/
-    Landing.tsx         # Hero/landing page
-    Dashboard.tsx       # Main chat UI
-    Signup.tsx          # Account creation form
+    Landing.tsx
+    Dashboard.tsx
+    Signup.tsx
   components/
     login/
-      LoginModal.tsx    # Fullscreen auth overlay
+      LoginModal.tsx
     nav/
-      AppNavbar.tsx     # Pill-style sticky navbar
+      AppNavbar.tsx
   context/
-    AuthContext.tsx     # Supabase auth state
+    AuthContext.tsx     # Supabase and User auth state
   lib/
-    supabase.ts         # Supabase client
+    supabase.ts
 ```
