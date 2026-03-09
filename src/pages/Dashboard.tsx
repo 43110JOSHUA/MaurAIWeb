@@ -1,5 +1,5 @@
 import { useAuth } from "../context/AuthContext";
-import LoginModal from "../components/LoginModal";
+import LoginModal from "../components/login/LoginModal";
 
 function Dashboard() {
   const { user, loading } = useAuth();
